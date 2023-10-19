@@ -1,0 +1,18 @@
+<h2>Browser 크기 정보</h2>
+<script>
+window.document.write("Browser 창크기: " +
+window.innerWidth + "px *" + window.innerHeight + "px<br>");
+window.alert("전역 window 접두사 생략 가능!");
+var newWindowObj;
+
+function openWindow() { 
+    newWindowObj =window.open("http://google.com", "_google","popup");
+}
+function closeWindow() {
+    window.newWindowObj.close();
+}
+</script>
+
+<br><br>
+<button onclick="openWindow()">새창 열기 </button>
+<button onclick="closeWindow()">새창 닫기</button>

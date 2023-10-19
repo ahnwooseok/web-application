@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="item_result"></div>
+
+  <script>
+    const itemString = `
+<item_tbl>
+    <item item_id="1">
+        <item_name>맨투맨</item_name>
+        <price>50000</price>
+        <categories>
+            <category>상의</category>
+            <category>남여공용</category>
+        </categories>
+        <photo>사진</photo>
+    </item>
+    <item item_id='2'>
+        <item_name>후드티</item_name>
+        <price>60000</price>
+        <categories>
+            <category>상의</category>
+            <category>남여공용</category>
+        </categories>
+        <photo>사진;</photo>
+    </item>
+    <item item_id='3'>
+        <item_name>셔츠</item_name>
+        <price>45000</price>
+        <categories>
+            <category>상의</category>
+            <category>남여공용</category>
+            <category>베스트상품</category>
+        </categories>
+        <photo>사진</photo>
+    </item>
+    <item item_id='4'>
+        <item_name>청바지</item_name>
+        <price>65000</price>
+        <categories>
+            <category>하의</category>
+            <category>남성의류</category>
+        </categories>
+        <photo>사진</photo>
+    </item>
+    <item item_id='5'>
+        <item_name>트레이닝바지</item_name>
+        <price>29900</price>
+        <categories>
+            <category>하의</category>
+            <category>남성의류</category>
+            <category>세일상품</category>
+        </categories>
+        <photo>사진;</photo>
+    </item>
+    <item item_id='6'>
+        <item_name>롱스커트</item_name>
+        <price>30000</price>
+        <categories>
+            <category>하의</category>
+            <category>여성의류</category>
+        </categories>
+        <photo>사진</photo>
+    </item>
+    <item item_id='7'>
+        <item_name>미니스커트</item_name>
+        <price>19000</price>
+        <categories>
+            <category>하의</category>
+            <category>여성의류</category>
+            <category>세일팡숨</category>
+        </categories>
+        <photo>사진</photo>
+    </item>
+    <item item_id='8'>
+        <item_name id="hoodie">후드집업</item_name>
+        <price>55000</price>
+        <categories>
+            <category>아우터</category>
+            <category>남여공용</category>
+            <category>베스트상품</category>
+        </categories>
+        <photo>사진</photo>
+    </item>
+    <item item_id='9'>
+        <item_name>가디건</item_name>
+        <price>70000</price>
+        <categories>
+            <category>아우터</category>
+            <category>남성의류</category>
+        </categories>
+        <photo>사진</photo>
+    </item>
+    <item item_id='10'>
+        <item_name>코트</item_name>
+        <price>120000</price>
+        <categories>
+            <category>아우터</category>
+            <category>남성의류</category>
+        </categories>
+        <photo>사진</photo>
+    </item>
+</item_tbl>
+  `
+
+    let parser = new DOMParser();
+    let xmlDoc = parser.parseFromString(itemString, "text/xml");
+
+    let items = xmlDoc.getElementsByTagName('item').length;
+    let res = document.getElementById("item_result");
+    res.innerHTML = `아이템 수 : ${items}<br>`
+
+    let hoodieZipup = xmlDoc.getElementById('hoodie');
+
+    let prev = hoodieZipup.parentNode.previousSibling.previousSibling;
+    let prevSibling = prev.querySelector('item_name').textContent;
+    let next = hoodieZipup.parentNode.nextSibling.nextSibling;
+    let nextSibling = next.querySelector('item_name').textContent;
+    res.innerHTML += `이전 : ${prevSibling}<br>`
+    res.innerHTML += `다음 : ${nextSibling}<br>`
+
+    let itemName = xmlDoc.getElementsByTagName('item_name');
+
+    for (let i = 0; i < itemName.length; i++) {
+      let name = itemName[i].firstChild.nodeValue;
+      console.log(name)
+    }
+  </script>
+</body>
+
+</html>

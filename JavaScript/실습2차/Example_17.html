@@ -1,0 +1,30 @@
+
+<script>
+// Definition of Object “gildong”
+var gildong = {
+             age: 18,
+       // Define getter method
+get americanAge() {return this.age-1; },
+       // Define setter method
+set changeAge(n) { this.age + n; }
+};
+
+
+
+document.writeln("Age: " + gildong.age);
+document.writeln("American Age: " + gildong.americanAge);
+gildong.changeAge = 1;
+document.writeln("Age in Next Year: " + gildong.age);
+
+
+
+if (Object.isExtensible(gildong)) { // Object is extensible?
+    if (!gildong.hasOwnProperty("height")){
+        Object.defineProperty(gildong, "height",{ value: 180 });
+    }
+    if (!gildong.hasOwnProperty("hobby")){
+        gildong.hobby = [ "Drive", "Game", "Sport" ];
+        Object.preventExtensions(gildong);
+    }
+}
+</script>

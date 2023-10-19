@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+
+    <body>
+
+        <script>
+            document.writeln("현재 URL: " + location.href);
+            document.writeln("현재 Hostname: " + location.hostname);
+            document.writeln("현재 FilePath: " + location.pathname);
+
+            function openDoc(){
+                location.assign("http://www.daum.net");
+            }
+            
+            function replaceDoc(){
+                location.replace("http://www.goolge.com");
+            }
+        </script>
+        
+        <br>
+        <button onclick="openDoc()">Open Page</button>
+        <button onclick="replaceDoc()">Replace Page</button>
+    </body>
+    
+    
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+
+    <body>
+        <div id = "parentNode">
+            <p>
+                첫 번째 단락입니다.
+            </p>
+            <p>
+                두 번째 단락입니다.
+            </p>
+        </div>
+        
+        <script>
+            var parentNode = document.getElementById("parentNode");
+
+            var lastNode = parentNode.lastChild;
+            document.writeln("# of Child Nodes : " + parentNode.childNodes.length);
+            document.writeln("Last Child Node Name : " + lastNode.nodeName);
+            while(lastNode.nodeType!=1){
+                lastNode = lastNode.previousSibling;
+            }
+            document.writeln("Last Element Node Name : " + lastNode.nodeName);
+        </script>
+    </body>
+
+</html>

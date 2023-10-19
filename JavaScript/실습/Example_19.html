@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+
+    <body>
+        <h2>Mouse Event 처리</h2>
+        <p>아래 버튼에 마우스를 올리거나 클릭 ...</p><br>
+        <button id = "btn" onclick="clickBtn(event)">버튼</button>
+        <br><br>
+        <p id = "text"></p>
+
+        <script>
+            function clickBtn(e){
+                document.getElementById("text").innerHTML = "버튼 클릭! <br> Event Type :" + e.type + "<br>Event Target :" + e.target.localName;
+            }
+            var btn = document.getElementById("btn");
+            btn.onmouseover = (e) => {
+                document.getElementById("text").innerHTML = "버튼 위에 마우스! <br> Event Type :" + e.type + "<br>Event Target :" + e.target.localName;
+            }
+            btn.addEventListener("mouseout", mouseoutBtn);
+            function mouseoutBtn(e){
+                document.getElementById("text").innerHTML = "버튼 밖에 마우스! <br> Event Type :" + e.type + "<br>Event Target :" + e.target.localName;
+            }
+        </script>
+        
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Example_9</title>
+</head>
+
+<body>
+  <ul id="list">
+    <li>첫 번째 아이템이에요!</li>
+    <li>두 번째 아이템이에요!</li>
+    <li>세 번째 아이템이에요!</li>
+  </ul>
+  <button id="btn" onclick="onClick(event)">클릭</button>
+  <p id="text"></p>
+
+  <script>
+    var lists = document.getElementById("list").childNodes;
+    console.log(lists)
+    var selectedItem = document.getElementsByTagName("li");
+
+    var parent = document.getElementById("list");
+    var lastNode = parent.lastChild;
+
+    for (var i = 1; i < lists.length; i += 2) {
+      document.writeln(lists[i].firstChild.nodeValue);
+    }
+    for (var i = 0; i < selectedItem.length; i++) {
+      selectedItem[i].style.color = 'blue';
+    }
+
+    document.writeln(lists.length);
+    document.writeln(lastNode.nodeType);
+
+    while (lastNode.nodeType != 1)
+      lastNode = lastNode.previousSibling;
+    document.writeln(lastNode.nodeName);
+
+    var text = document.getElementById("text");
+    var btn = document.getElementById("btn");
+
+    function onClick(event) {
+      text.innerHTML = "cilck";
+    }
+
+    btn.onmouseover = (e) => {
+      text.innerHTML = "mouseover";
+    }
+                        
+    btn.addEventListener("mouseout", (e) => {
+      text.innerHTML = "mouseout";
+    })
+
+
+  </script>
+</body>
+
+</html>

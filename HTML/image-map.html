@@ -1,0 +1,26 @@
+
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+    <h1>표지판을 눌러보세요!</h1>
+    <!-- Prefix “#”을 사용 -->
+    <!-- <img src="./alert.jpeg" alt="imgmap.gif" usemap="#ex" id="peter" onclick="alert()"> -->
+
+    <!-- <div id="peter">peter div</div> -->
+    <img src="./alert.jpeg" alt="imgmap.gif" usemap="#ex" id="peter">
+	<map name="ex">
+ 		<area shape="rect" coords="20,20,20,20" href="https://www.naver.com/" target="_blank">
+	</map>
+
+
+    <!-- script 뒤쪽으로 빼야된다. -->
+    <!-- 안그럼 can not read null error -->
+    <script>
+        const element = document.getElementById("peter");
+        element.addEventListener("click", ()=>{
+            alert("hi peter")
+        })
+    </script>
+</body>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <div id="divBox">
+            <p id="paraBox">박스 안을
+            <a id="linkBox" href="www.google.com">Click</a></p>
+        </div>
+
+        <p id="text"></p>
+
+        <script>
+            document.getElementById("divBox").addEventListener("click",clickDiv);
+            document.getElementById("paraBox").addEventListener("click",clickPara);
+            document.getElementById("linkBox").addEventListener("click",clickLink);
+            function clickDiv(event) {
+                document.getElementById("text").innerHTML += "[div] ElementClick<br>"; 
+            }
+            function clickPara(event) {
+                document.getElementById("text").innerHTML += "[p] ElementClick<br>"; 
+            }
+            function clickLink(event) {
+                event.preventDefault();
+                document.getElementById("text").innerHTML += "Default 동작 취소<br>";
+            }
+        </script>
+        <style>
+            #divBox {
+                border:1px solid blue;
+            }
+            #paraBox {
+                border:1px solid red;
+            }
+            #linkBox {
+                border:1px solid green
+            }
+        </style>
+    </body>
+</html>

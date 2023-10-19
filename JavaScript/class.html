@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Vehicle {
+      type = '';
+
+      constructor(type) {
+        this.type = type;
+      }
+
+      move() {
+        return `This ${this.type} moves.`;
+      }
+    }
+
+    class Car extends Vehicle {
+      brand = '';
+      seats = 0;
+
+      constructor(brand, seats) {
+        super("car");
+        this.brand = brand;
+        this.seats = seats;
+      }
+
+      honk() {
+        return `Beep! Beep!`;
+      }
+    }
+
+    class Bicycle extends Vehicle {
+      brand = '';
+
+      constructor(brand) {
+        super("bicycle");
+        this.brand = brand;
+      }
+
+      ringBell() {
+        return `Ring! Ring!`;
+      }
+    }
+
+    const bicycle = new Bicycle("자전거");
+    const car = new Car("현대", 4);
+
+    console.log(car.move());
+    console.log(car.honk());
+    console.log(bicycle.move());
+    console.log(bicycle.ringBell());
+
+
+  </script>
+
+
+</body>
+
+</html>

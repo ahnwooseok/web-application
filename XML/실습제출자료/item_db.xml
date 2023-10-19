@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<!DOCTYPE item_tbl
+[   
+    <!NOTATION JPEG SYSTEM "image/jpeg">
+    <!ENTITY tablet_img1 SYSTEM "./tablet1.jpg" NDATA JPEG>
+    <!ENTITY tablet_img2 SYSTEM "./tablet2.jpg" NDATA JPEG>
+    <!ENTITY tablet_img3 SYSTEM "./tablet3.jpg" NDATA JPEG>
+    <!ENTITY tablet_img4 SYSTEM "./tablet4.jpg" NDATA JPEG>
+    <!ENTITY tablet_img5 SYSTEM "./tablet5.jpg" NDATA JPEG>
+    <!ENTITY chocolate_img SYSTEM "./chocolate.jpg" NDATA JPEG>
+    <!ENTITY labtop_img SYSTEM "./labtop.jpg" NDATA JPEG>
+    <!ENTITY mouse_img SYSTEM "./mouse.jpg" NDATA JPEG>
+    <!ENTITY cola_img SYSTEM "./cola.jpg" NDATA JPEG>
+    <!ENTITY phone_img SYSTEM "./phone.jpg" NDATA JPEG>
+    
+
+    
+    <!ELEMENT item_tbl (item+)>
+    <!ELEMENT item (item_name, price, category_name+, item_image)>
+    <!ELEMENT item_name (#PCDATA)>
+    <!ELEMENT price (#PCDATA)>
+    <!ELEMENT category_name (#PCDATA)>
+    <!ELEMENT item_image (#PCDATA)>
+    <!ATTLIST item id CDATA #REQUIRED>
+    <!ATTLIST item_image src ENTITY #REQUIRED>
+]>
+<item_tbl>
+    <item id = "1">
+        <item_name>
+            태블릿 PC1
+        </item_name>
+
+        <price>
+            300000
+        </price>
+
+        <category_name>
+            가전제품
+        </category_name>
+        <category_name>
+            모바일
+        </category_name>
+
+        <item_image src = "tablet_img1">         
+        </item_image>
+
+    </item>
+    <item id = "2">
+        <item_name>
+            태블릿 PC2
+        </item_name>
+
+        <price>
+            310000
+        </price>
+
+        <category_name>
+            가전제품
+        </category_name>
+        <category_name>
+            모바일
+        </category_name>
+
+        <item_image src = "tablet_img2">
+            
+        </item_image>
+
+    </item>
+    <item id = "3">
+        <item_name>
+            태블릿 PC3
+        </item_name>
+
+        <price>
+            340000
+        </price>
+
+        <category_name>
+            가전제품
+        </category_name>
+        <category_name>
+            모바일
+        </category_name>
+
+        <item_image src = "tablet_img3">
+            
+        </item_image>
+
+    </item>
+    <item id = "4">
+        <item_name>
+            게이밍 노트북
+        </item_name>
+
+        <price>
+            1100000
+        </price>
+
+        <category_name>
+            가전제품
+        </category_name>
+
+        <item_image src = "labtop_img">
+            
+        </item_image>
+
+    </item>
+    <item id = "5">
+        <item_name>
+            초콜릿
+        </item_name>
+
+        <price>
+            3000
+        </price>
+
+        <category_name>
+            식품
+        </category_name>
+        <category_name>
+            초콜릿
+        </category_name>
+
+        <item_image src = "herschocolate_imghey_img">
+            
+        </item_image>
+
+    </item>
+    <item id = "6">
+        <item_name>
+            무선 마우스
+        </item_name>
+
+        <price>
+            30000
+        </price>
+
+        <category_name>
+            가전제품
+        </category_name>
+        <category_name>
+            컴퓨터
+        </category_name>
+        <category_name>
+            마우스
+        </category_name>
+
+        <item_image src = "tablet_img">
+            
+        </item_image>
+
+    </item>
+    <item id = "7">
+        <item_name>
+            태블릿 PC4
+        </item_name>
+
+        <price>
+            440000
+        </price>
+
+        <category_name>
+            가전제품
+        </category_name>
+        <category_name>
+            모바일
+        </category_name>
+
+        <item_image src = "tablet_img4">
+            
+        </item_image>
+
+    </item>
+    <item id = "8">
+        <item_name>
+            태블릿 PC5
+        </item_name>
+
+        <price>
+            400000
+        </price>
+
+        <category_name>
+            가전제품
+        </category_name>
+        <category_name>
+            모바일
+        </category_name>
+
+        <item_image src = "tablet_img5">
+            
+        </item_image>
+        
+
+    </item>
+    <item id = "9">
+        <item_name>
+            콜라
+        </item_name>
+
+        <price>
+            15000
+        </price>
+
+        <category_name>
+            식품
+        </category_name>
+        <category_name>
+            음료
+        </category_name>
+        <category_name>
+            탄산음료
+        </category_name>
+
+        <item_image src = "cola_img">
+            
+        </item_image>
+
+    </item>
+    <item id = "10">
+        <item_name>
+            아이폰 14
+        </item_name>
+
+        <price>
+            700000
+        </price>
+
+        <category_name>
+            가전제품
+        </category_name>
+        <category_name>
+            모바일
+        </category_name>
+
+        <item_image src = "phone_img">
+            
+        </item_image>
+
+    </item>
+</item_tbl>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+
+    <body>
+        <ul id = "list">
+            <li>
+                첫 번째 아이템이에요!
+            </li>
+            <li>
+                두 번째 아이템이에요!
+            </li>
+            <li>
+                세 번째 아이템이에요!
+            </li>
+        </ul>
+        
+        <script>
+            var listItems = document.getElementById("list").childNodes;
+            document.writeln(listItems[1].firstChild.nodeValue);
+            document.writeln(listItems[3].firstChild.nodeValue);
+            document.writeln(listItems[5].firstChild.nodeValue);
+
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,102 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE order_tbl
+[ 
+    <!ELEMENT order_tbl (order+)>
+    <!ELEMENT order (item+, user)>
+    <!ELEMENT item (quantity)>
+    <!ELEMENT user EMPTY>
+    <!ELEMENT quantity (#PCDATA)>
+    <!ATTLIST order id CDATA #REQUIRED>
+    <!ATTLIST user id CDATA #REQUIRED>
+    <!ATTLIST item id CDATA #REQUIRED>
+    <!ENTITY item_db SYSTEM "./item_db.xml">
+    <!ENTITY user_db SYSTEM "./user_db.xml">
+    
+]>
+
+<order_tbl>
+    <order id = "1">
+        <item id = "3">
+            <quantity>1</quantity>
+        </item>
+        <item id = "4">
+            <quantity>2</quantity>
+        </item>
+        <user id = "3"></user>
+        
+    </order>
+    <order id = "2">
+        <item id = "6">
+            <quantity>1</quantity>
+        </item>
+        <user id = "2"></user>
+        
+    </order>
+    <order id = "3">
+        <item id = "9">
+            <quantity>10</quantity>
+        </item>
+        <user id = "7"></user>
+        
+    </order>
+    <order id = "4">
+        <item id = "6">
+            <quantity>12</quantity>
+        </item>
+        <user id = "8"></user>
+        
+    </order>
+    <order id = "5">
+        <item id = "1">
+            <quantity>1</quantity>
+        </item>
+        <item id = "2">
+            <quantity>1</quantity>
+        </item>
+        <item id = "3">
+            <quantity>1</quantity>
+        </item>
+        <item id = "4">
+            <quantity>1</quantity>
+        </item>
+        <user id = "3"></user>
+        
+    </order>
+    <order id = "6">
+        <item id = "7">
+            <quantity>2</quantity>
+        </item>
+        <user id = "10"></user>
+        
+    </order>
+    <order id = "7">
+        <item id = "10">
+            <quantity>11</quantity>
+        </item>
+        <item id = "8">
+            <quantity>10</quantity>
+        </item>
+        <user id = "5"></user>
+        
+    </order>
+    <order id = "8">
+        <item id = "3">
+            <quantity>1</quantity>
+        </item>
+        <user id = "4"></user>
+        
+    </order>
+    <order id = "9">
+        <item id = "1">
+            <quantity>1</quantity>
+        </item>
+        <user id = "4"></user>
+        
+    </order>
+    <order id = "10">
+        <item id = "4">
+            <quantity>10</quantity>
+        </item>
+        <user id = "8"></user>        
+    </order>
+</order_tbl>

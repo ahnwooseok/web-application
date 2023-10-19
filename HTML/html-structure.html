@@ -1,0 +1,39 @@
+
+<head>
+    <!-- • <style>: HTML 문서 전체의 Global 스타일 지정(☞ CSS 참조) -->
+    <style>
+        body {background-color: powderblue;}
+        h1 {color: red;}
+        p {color: blue;}
+        #demo {
+            color: yellow;
+        }
+    </style>
+     <!-- HTML에서 사용하는 JavaScript 정의 또는 외부 JavaScript 로딩 
+        (※ 참고로 <body> 영역에도 정의할 수 있으며, 사용상의 차이는 없음) -->
+    <script>
+            function myFunction() {
+                document.getElementById("demo").innerHTML = "Hello JavaScript!";
+            }
+    </script>
+    <script 
+        type="text/javascript“ 
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    >
+    </script>
+    <!-- • <link>: 문서에서 사용하는 외부 자원 정의(외부 CSS, Icon 파일 지정 등) -->
+    <link type=“text/css" href="mystyle.css" rel="stylesheet"></link>
+    <!-- • <base>: 문서에서 사용하는 Default 베이스 URL 및 Target을 지정 -->
+    <base href="https://www.mysite.com/" target="_blank">
+    <!-- • <meta>: 상기 Tag로 정의되는 것 외에 기타 Metadata를 정의 -->
+    <meta http-equiv="refresh" content="1:url=https://www.w3.org">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div id="demo">12</h1>
+</body>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+    <body>
+
+        <script>
+            document.write("hi")
+            function able() {
+                document.getElementById("one").innerHTML = "jfsi"
+            }
+        </script>
+        <ul>
+            <li id = "one" onclick="able()">
+                첫번째 아이템
+            </li>
+            <li id = "two">
+                두 번째 아이템
+            </li>
+            <li id = "three">
+                세 번째 아이템
+            </li>
+        </ul>
+
+        <script>
+            var selectedItem = document.getElementById("one");
+            selectedItem.style.color="red";
+        </script>
+        
+    </body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="counter"></div>
+    <p><button onclick="clickCounter()" type="button">
+            카운터 증가</button></p>
+    <script>
+        function clickCounter() {
+            if (typeof (Storage) !== "undefined") {
+                if (localStorage.ccnt)
+                    localStorage.ccnt =
+                        Number(localStorage.ccnt) + 1;
+                else
+                    localStorage.ccnt = 1; //ccnt 초기화
+                document.getElementById("counter")
+                    .innerHTML = "카운터 현재 횟수:" + localStorage.ccnt;
+            } else alert("### Web Storage API 사용 불가!");
+        }
+    </script>
+</body>
+
+</html>

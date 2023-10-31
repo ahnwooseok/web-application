@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ondrop="drop(event)" ondragover="dragEnter(event)">
+        여기에 파일을 드랍하세요!</div>
+    <script>
+        function dragEnter(ev) { ev.preventDefault(); }
+        // 브라우저 기본 Action(객체 Drag 불허) 방지
+        function drop(ev) {
+            ev.preventDefault(); // 브라우저 기본 Action(Drag된 FileOpen) 방지
+            var data = ev.dataTransfer;
+            if (data.items)
+                for (var i = 0; i < data.items.length; i++)
+                    if (data.items[i].kind == "file")
+                        console.log("Item(" + i + "):" +
+                            data.items[i].getAsFile().name);
+        } // Console 출력(F12 for Chrome): Drag된 파일목록
+    </script>
+</body>
+
+</html>

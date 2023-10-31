@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Search</title>
+</head>
+
+<body>
+    <p>현재까지 발견한 소수: <output id="result"></output></p>
+    <button onclick="startWorker()">Worker 시작</button>
+    <button onclick="stopWorker()">Worker 종료</button>
+    <p>아래 텍스트 필드에 동시에 글쓰기 가능!!! </p>
+    <textarea rows="10" cols="50"></textarea>
+    <script>
+        var webworker;
+
+        function startWorker() {
+            if (typeof Worker !== "undefined") {
+                if (webworker === undefined) {
+                    webworker = new Worker("worker.js");
+                }
+                webworker.onmessage = function (event) {
+                    document.getElementById("result").textContent = event.data + "개";
+                };
+            } else {
+                alert("Web Worker를 사용할 수 없는 브라우저입니다.");
+            }
+        }
+
+        function stopWorker() {
+            if (webworker) {
+                webworker.terminate();
+                webworker = undefined;
+            }
+        }
+    </script>
+</body>
+
+</html>

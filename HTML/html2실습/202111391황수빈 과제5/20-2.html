@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ondrop="drop(event)" ondragover="dragEnter(event)"
+        style="width:180px; height:280px;background-color:blue;float:left">
+        <!-- div1 -->
+        <img id="monalisa" width="180" height="280" src="poster.png" draggable="true" ondragstart="drag(event)">
+    </div>
+    <div ondrop="drop(event)" ondragover="dragEnter(event)"
+        style="width:180px; height:280px;background-color:red;float:left">
+    </div>
+    <!-- div2 -->
+    <script>
+        function dragEnter(ev) { ev.preventDefault(); }
+        function drag(ev) {
+            ev.dataTransfer.setData("drag_data", ev.target.id);
+        }
+        // ev.target = img object(id: "monalisa")
+        function drop(ev) {
+            ev.preventDefault(); // data = “monalisa”
+            var data = ev.dataTransfer.getData("drag_data");
+            ev.target.appendChild(document.getElementById(data));
+        } // ev.target = div2 object
+    </script>
+</body>
+
+</html>

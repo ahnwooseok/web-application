@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+
+    <body>
+        <div id="counter"></div>
+        <p><button onclick="clickCounter()" type="button">
+        카운터 증가</button></p>
+
+
+        <script>
+      function clickCounter() {
+            if(typeof(Storage) !== "undefined") {
+                if (localStorage.ccnt){
+                    localStorage.ccnt = Number(localStorage.ccnt) + 1;
+                    document.getElementById("counter") .innerHTML = "카운터 현재 횟수:" + localStorage.ccnt
+                }
+                else {
+                    localStorage.ccnt = 1;
+                    document.getElementById("counter") .innerHTML = "카운터 현재 횟수:" + localStorage.ccnt
+                }
+            }
+            else{
+                alert("### Web Storage API 사용 불가!");
+            }
+             
+            }
+        </script>
+        
+    </body>
+    
+    
+</html>

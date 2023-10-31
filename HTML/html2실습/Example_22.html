@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+
+    <body>
+        <p>현재까지 발견한 소수: 
+            <output id="result"/>
+        </p> 
+        <button onclick="startWorker()">Worker 시작</button> 
+        <button onclick="stopWorker()">Worker 종료</button> 
+        <p>아래 텍스트 필드에 동시에 글쓰기 가능!!! </p> 
+        <textarea rows="10" cols="50"></textarea>
+        
+        <script>
+              var webworker;
+            function startWorker() {
+                if(typeof(Worker) !== "undefined") {
+             
+                    if(typeof(webworker) == "undefined"){
+                        webworker = new Worker("worker.js"); 
+                        webworker.onmessage = function(event){
+                            document.getElementById("result").innerHTML = event.data + "개";
+                        }
+                    }
+                    else alert("### Web Storage API 사용불가!")
+                }
+            }
+            function stopWorker() {
+                webworker.terminate();
+                webworker = undefined
+            }
+
+        </script>
+        
+    </body>
+    
+    
+</html>

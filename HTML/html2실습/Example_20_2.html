@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+    <body>
+       
+
+
+        <div style="position: flex;flex-direction: row;">
+            <div ondrop="drop(event)" ondragover="dragEnter(event)" style="width:100px; height:100px;border: 1px solid #333333;">
+                <img id="monalisa" width="100px" height="100px" src="alert.jpeg" draggable="true" ondragstart="drag(event)">
+            </div>
+            <div ondrop="drop(event)" ondragover="dragEnter(event)" style="width:100px; height:100px;border: 1px solid #333333;">
+            </div>
+        </div>
+       
+        <script>
+            function dragEnter(ev) { ev.preventDefault(); }
+            function drag(ev) {
+                ev.dataTransfer.setData("drag_data", ev.target.id);
+            }
+            function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("drag_data");
+                ev.target.appendChild(document.getElementById(data));
+            }
+        </script>
+        
+    </body>
+    
+    
+</html>

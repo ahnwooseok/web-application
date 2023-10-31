@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+    <body>
+        <button onclick="findLocation()">현재 위치의 위도와 경도</button>
+        <p id="myLocation"></p>
+        
+        <script>
+            var loc = document.getElementById("myLocation");
+            function findLocation() {
+                if (navigator.geolocation) navigator.geolocation.getCurrentPosition(showLocation,showErrorMsg);
+                else loc.innerHTML = "### 웹 브라우저가 Geolocation API를 지원하지 않음!";
+            }
+            function showLocation(position) {
+                loc.innerHTML = "위도: " + position.coords.latitude + ", 경도: " +position.coords.longitude;
+            }
+            function showErrorMsg(error) {
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        loc.innerHTML = "### ERR: Permission Denied"
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        loc.innerHTML = "### ERR: Position Unavailable"
+                        break;
+                    case error.TIMEOUT:
+                        loc.innerHTML = "### ERR: Timeout"
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        loc.innerHTML = "### ERR: Unknown Error"
+                        break;
+                }
+            }
+        
+
+        </script>
+        
+    </body>
+    
+    
+</html>

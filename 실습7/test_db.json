@@ -1,0 +1,405 @@
+TestFile = {
+    "test_db": {
+        "student_table": {
+            "student": [
+                {
+                    "id": "STD_001",
+                    "name": "김철수",
+                    "attend": [
+                        {
+                            "subj": "SBJ_001",
+                            "score": 95
+                        },
+                        {
+                            "subj": "SBJ_002",
+                            "score": 93
+                        },
+                        {
+                            "subj": "SBJ_003",
+                            "score": 90
+                        },
+                        {
+                            "subj": "SBJ_004",
+                            "score": 91
+                        },
+                        {
+                            "subj": "SBJ_005",
+                            "score": 93
+                        }
+                    ]
+                },
+                {
+                    "id": "STD_002",
+                    "name": "이영희",
+                    "attend": [
+                        {
+                            "subj": "SBJ_002",
+                            "score": 89
+                        },
+                        {
+                            "subj": "SBJ_004",
+                            "score": 90
+                        },
+                        {
+                            "subj": "SBJ_001",
+                            "score": 85
+                        },
+                        {
+                            "subj": "SBJ_005",
+                            "score": 99
+                        },
+                        {
+                            "subj": "SBJ_003",
+                            "score": 81
+                        },
+                        {
+                            "subj": "SBJ_014",
+                            "score": 96
+                        }
+                    ]
+                },
+                {
+                    "id": "STD_003",
+                    "name": "박상철",
+                    "attend": [
+                        {
+                            "subj": "SBJ_006",
+                            "score": 91
+                        },
+                        {
+                            "subj": "SBJ_007",
+                            "score": 88
+                        },
+                        {
+                            "subj": "SBJ_008",
+                            "score": 83
+                        },
+                        {
+                            "subj": "SBJ_011",
+                            "score": 95
+                        }
+                    ]
+                },
+                {
+                    "id": "STD_004",
+                    "name": "최성호",
+                    "attend": [
+                        {
+                            "subj": "SBJ_001",
+                            "score": 85
+                        },
+                        {
+                            "subj": "SBJ_002",
+                            "score": 83
+                        },
+                        {
+                            "subj": "SBJ_003",
+                            "score": 90
+                        },
+                        {
+                            "subj": "SBJ_004",
+                            "score": 81
+                        },
+                        {
+                            "subj": "SBJ_005",
+                            "score": 83
+                        }
+                    ]
+                },
+                {
+                    "id": "STD_005",
+                    "name": "정한석",
+                    "attend": [
+                        {
+                            "subj": "SBJ_001",
+                            "score": 93
+                        },
+                        {
+                            "subj": "SBJ_004",
+                            "score": 92
+                        },
+                        {
+                            "subj": "SBJ_003",
+                            "score": 85
+                        },
+                        {
+                            "subj": "SBJ_005",
+                            "score": 97
+                        },
+                        {
+                            "subj": "SBJ_011",
+                            "score": 90
+                        }
+                    ]
+                },
+                {
+                    "id": "STD_006",
+                    "name": "오성희",
+                    "attend": [
+                        {
+                            "subj": "SBJ_010",
+                            "score": 93
+                        },
+                        {
+                            "subj": "SBJ_011",
+                            "score": 95
+                        },
+                        {
+                            "subj": "SBJ_012",
+                            "score": 91
+                        },
+                        {
+                            "subj": "SBJ_013",
+                            "score": 97
+                        }
+                    ]
+                },
+                {
+                    "id": "STD_007",
+                    "name": "한영석",
+                    "attend": [
+                        {
+                            "subj": "SBJ_006",
+                            "score": 95
+                        },
+                        {
+                            "subj": "SBJ_007",
+                            "score": 97
+                        },
+                        {
+                            "subj": "SBJ_008",
+                            "score": 98
+                        },
+                        {
+                            "subj": "SBJ_009",
+                            "score": 95
+                        },
+                        {
+                            "subj": "SBJ_012",
+                            "score": 93
+                        },
+                        {
+                            "subj": "SBJ_013",
+                            "score": 95
+                        }
+                    ]
+                },
+                {
+                    "id": "STD_008",
+                    "name": "고영화",
+                    "attend": [
+                        {
+                            "subj": "SBJ_003",
+                            "score": 92
+                        },
+                        {
+                            "subj": "SBJ_004",
+                            "score": 93
+                        },
+                        {
+                            "subj": "SBJ_008",
+                            "score": 88
+                        },
+                        {
+                            "subj": "SBJ_009",
+                            "score": 87
+                        },
+                        {
+                            "subj": "SBJ_012",
+                            "score": 81
+                        }
+                    ]
+                },
+                {
+                    "id": "STD_009",
+                    "name": "고장혁",
+                    "attend": [
+                        {
+                            "subj": "SBJ_002",
+                            "score": 91
+                        },
+                        {
+                            "subj": "SBJ_001",
+                            "score": 93
+                        },
+                        {
+                            "subj": "SBJ_005",
+                            "score": 93
+                        },
+                        {
+                            "subj": "SBJ_006",
+                            "score": 95
+                        },
+                        {
+                            "subj": "SBJ_007",
+                            "score": 95
+                        }
+                    ]
+                },
+                {
+                    "id": "STD_010",
+                    "name": "서정혜",
+                    "attend": [
+                        {
+                            "subj": "SBJ_002",
+                            "score": 81
+                        },
+                        {
+                            "subj": "SBJ_007",
+                            "score": 85
+                        },
+                        {
+                            "subj": "SBJ_010",
+                            "score": 83
+                        },
+                        {
+                            "subj": "SBJ_011",
+                            "score": 80
+                        }
+                    ]
+                }
+            ]
+        },
+        "teacher_table": {
+            "teacher": [
+                {
+                    "id": "TCH_001",
+                    "name": "박선생",
+                    "class": "1학년1반"
+                },
+                {
+                    "id": "TCH_002",
+                    "name": "김선생",
+                    "class": "1학년2반"
+                },
+                {
+                    "id": "TCH_003",
+                    "name": "이선생",
+                    "class": "2학년1반"
+                },
+                {
+                    "id": "TCH_004",
+                    "name": "최선생",
+                    "class": "2학년2반"
+                },
+                {
+                    "id": "TCH_005",
+                    "name": "유선생",
+                    "class": "3학년1반"
+                },
+                {
+                    "id": "TCH_006",
+                    "name": "마선생",
+                    "class": "3학년2반"
+                },
+                {
+                    "id": "TCH_007",
+                    "name": "허선생",
+                    "class": "담당없음"
+                }
+            ]
+        },
+        "subject_table": {
+            "subject": [
+                {
+                    "id": "SBJ_001",
+                    "title": "국어",
+                    "lecture": {
+                        "by": "TCH_001"
+                    }
+                },
+                {
+                    "id": "SBJ_002",
+                    "title": "영어",
+                    "lecture": {
+                        "by": "TCH_002"
+                    }
+                },
+                {
+                    "id": "SBJ_003",
+                    "title": "수학",
+                    "lecture": {
+                        "by": "TCH_003"
+                    }
+                },
+                {
+                    "id": "SBJ_004",
+                    "title": "과학",
+                    "lecture": {
+                        "by": "TCH_004"
+                    }
+                },
+                {
+                    "id": "SBJ_005",
+                    "title": "사회",
+                    "lecture": {
+                        "by": "TCH_005"
+                    }
+                },
+                {
+                    "id": "SBJ_006",
+                    "title": "국어작문",
+                    "lecture": {
+                        "by": "TCH_001"
+                    }
+                },
+                {
+                    "id": "SBJ_007",
+                    "title": "영어독해",
+                    "lecture": {
+                        "by": "TCH_002"
+                    }
+                },
+                {
+                    "id": "SBJ_008",
+                    "title": "고급수학",
+                    "lecture": {
+                        "by": "TCH_003"
+                    }
+                },
+                {
+                    "id": "SBJ_009",
+                    "title": "과학실험",
+                    "lecture": {
+                        "by": "TCH_004"
+                    }
+                },
+                {
+                    "id": "SBJ_010",
+                    "title": "세계사",
+                    "lecture": {
+                        "by": "TCH_005"
+                    }
+                },
+                {
+                    "id": "SBJ_011",
+                    "title": "미술",
+                    "lecture": {
+                        "by": "TCH_006"
+                    }
+                },
+                {
+                    "id": "SBJ_012",
+                    "title": "심화과학",
+                    "lecture": {
+                        "by": "TCH_004"
+                    }
+                },
+                {
+                    "id": "SBJ_013",
+                    "title": "심화수학",
+                    "lecture": {
+                        "by": "TCH_003"
+                    }
+                },
+                {
+                    "id": "SBJ_014",
+                    "title": "음악",
+                    "lecture": {
+                        "by": "TCH_007"
+                    }
+                }
+            ]
+        }
+    }
+}

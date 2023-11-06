@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript 실습7</title>
+
+       	<style>
+		table, th, td {
+			border: 1px solid black;
+		 	border-collapse: collapse;
+			text-align: center;
+		}
+       	</style>               
+</head>
+
+<body>
+   <form>
+	<div>
+	    	<h2>JavaScript 실습7 _ xml -> json</h2>
+	</div><hr>
+
+	<div>
+
+
+			<h4>test_db.json</h4>
+			<h4></h4>
+
+	    	<h4>처리할 작업을 선택하시오</h4>
+		<button onclick="processXMLDoc1(event)">과목별 분석</button>
+		<button onclick="processXMLDoc2(event)">학생별 분석</button>
+		<button onclick="processXMLDoc3(event)">교사별 분석</button>
+	</div><br><hr>
+	
+	<div>
+	    	<h4>[ 처리 결과 ]</h4>
+
+		<!-- ==================================	-->
+		<!--	성적 처리 결과를 출력하는 영역	-->
+		<!-- ==================================	-->
+		<div id="output_area"></div>
+	</div>
+   </form>
+
+   <script src="./test_db.json" type="text/javascript"></script>
+   <script>
+	   let testData = JSON.parse(JSON.stringify(TestFile));
+	   
+	   const students = testData.test_db.student_table.student
+	   const subjects = testData.test_db.subject_table.subject
+	   const teachers = testData.test_db.teacher_table.teacher
+
+
+	   console.log(students);
+	   console.log(subjects);
+	   console.log(teachers);
+   </script>
+
+   <script>
+
+
+
+	// ==================================================
+	// 		과목별 분석 Event Listener
+	// ==================================================
+	function processXMLDoc1(event) {
+ 		event.preventDefault();
+		
+
+		answer_text = ""
+		let score_sum = 0
+		subjects.map((item,idx) => {
+			console.log(item.id)
+
+		
+			students.filter((item2) => item2.attend.map((item3) => {
+				if(item3.subj === item.id){
+					console.log(item3.score)
+					score_sum += item3.score
+				}
+			}))
+			
+			let text = "apple"
+			console.log(score_sum)
+			answer_text += `
+		<tr>
+				<td>${item.id}</td>
+				<td>${item.title}</td>
+				<td>${teachers.filter((item2) => item2.id === item.lecture.by)[0].name}</td>
+				<td>${students.filter((item2) => item2.attend.filter((item3) => item3.subj === item.id).length !== 0).length}</td>
+				<td>${(score_sum / students.filter((item2) => item2.attend.filter((item3) => item3.subj === item.id).length !== 0).length).toFixed(2)}</td>
+			</tr>
+		`
+
+
+		score_sum = 0
+		})
+
+		document.getElementById("output_area").innerHTML = `
+		<table>
+			<tr>
+				<td>과목ID</td>
+				<td>과목명</td>
+				<td>담당교사</td>
+				<td>수강생수</td>
+				<td>과목평균</td>
+			</tr>
+			${answer_text.toString()}
+		</table>
+		`
+
+
+		//	1번 문제에서 요구하는 Event Listener 코드 작성
+		//	(답안 작성시 본 커멘트 부분은 삭제할 것)
+
+		//	평균점수 출력시 소수점 2째 자리 반올림 방법은 아래 코드 참조
+		//		var a = 10.167;
+		//		console.log(a.toFixed(2));   // 콘솔에 10.17 출력
+
+	}
+
+	// ==================================================
+	// 		학생별 분석 Event Listener
+	// ==================================================
+	function processXMLDoc2(event) {
+ 		event.preventDefault();
+
+	
+
+
+		answer_text = ""
+		students.map((item,idx) => {
+
+			let attend_list = ""
+			let score_sum = 0
+			item.attend.map((item2) => {
+				
+				console.log(subjects.filter((item3) => item3.id === item2.subj)[0].title)
+				attend_list += subjects.filter((item3) => item3.id === item2.subj)[0].title + " "
+				score_sum += item2.score
+			})
+			
+			answer_text += `
+		<tr>
+				<td>${item.id}</td>
+				<td>${item.name}</td>
+				<td>${attend_list}</td>
+				<td>${item.attend.length}</td>
+				<td>${(score_sum / item.attend.length).toFixed(2)}</td>
+			</tr>
+		`
+		})
+
+
+
+		document.getElementById("output_area").innerHTML = `
+		<table>
+			<tr>
+				<td>학생ID</td>
+				<td>이름</td>
+				<td>과목목록</td>
+				<td>과목수</td>
+				<td>전체평균</td>
+			</tr>
+			${answer_text.toString()}
+		</table>
+		`
+
+	}
+
+	// ==================================================
+	// 		교사별 분석 Event Listener
+	// ==================================================
+	function processXMLDoc3(event) {
+ 		event.preventDefault();
+
+		
+
+		answer_text = ""
+		teachers.map((item,idx) => {
+
+			lecture_list = ""
+			console.log(subjects.filter((item2) => item2.lecture.by === item.id))
+			subjects.filter((item2) => item2.lecture.by === item.id).map(item3 => {
+				lecture_list += item3.title + " "
+			})
+
+			answer_text += `
+		<tr>
+				<td>${item.id}</td>
+				<td>${item.name}</td>
+				<td>${item.class}</td>
+				<td>${lecture_list}</td>
+				<td>${subjects.filter((item2) => item2.lecture.by === item.id).length}</td>
+			</tr>
+		`
+		})
+
+
+
+		document.getElementById("output_area").innerHTML = `
+		<table>
+			<tr>
+				<td>교사ID</td>
+				<td>이름</td>
+				<td>담당학급</td>
+				<td>과목목록</td>
+				<td>과목수</td>
+			</tr>
+			${answer_text.toString()}
+		</table>
+		`
+
+	}
+
+   </script>
+</body>
+
+</html>

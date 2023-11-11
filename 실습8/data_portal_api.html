@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11주차 실습 과제 (과제7) 공공데이터포털 OpenAPI_201811267</title>
+</head>
+<body>
+    <h1>11주차 실습 과제 (과제7) 공공데이터포털 OpenAPI_201811267</h1>
+    <button onclick="dagu_childCard()">대구광역시_아동급식카드가맹점정보조회서비스</button>
+    <button onclick="gisang_beach_weather()">기상청_전국 해수욕장 날씨 조회서비스</button>
+    <button onclick="gisang_Ground_ASOS()">기상청_지상(종관, ASOS) 일자료 조회서비스</button>
+
+    <div id="output_area"></div>
+    <script>
+        // 대구광역시_아동급식카드가맹점정보조회서비스
+        function dagu_childCard() {
+            const serviceKey = "4D8Kfk%2FM0g%2BcaZmM2Eet3T5gE4ZeBfy9kh84%2F396xIPMYnBS4GWiSRWT89iLlZCpayip7hWvCyd7YjlPCUADbA%3D%3D";
+            const apiUrl = `https://apis.data.go.kr/6270000/dgMealCardShop/getShopList?serviceKey=${serviceKey}&type=json&numOfRows=10&pageNo=1`;
+
+            // API 호출
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+		
+
+		            answer_text = ""
+
+		            data.body.items.item.map((item,idx) => {
+			            console.log(item)
+			
+			            let text = "apple"
+			            answer_text += `
+		            <tr>
+				            <td>${item.shopName}</td>
+                            <td>${item.coOwnNm}</td>
+                            <td>${item.shopRoadAddr + " " + item.shopRoadAddr2}</td>
+                            <td>${item.mngGoTel}</td>
+                            <td>${item.shopLat + " " + item.shopLon}</td>
+                    
+			
+			        </tr>
+		            `
+		            })
+
+		            document.getElementById("output_area").innerHTML = `
+		            <table>
+                        <tr>
+                            <td>가게명</td>
+                            <td>가게소유주</td>
+                            <td>주소</td>
+                            <td>전화번호</td>
+                            <td>위도경도</td>
+                        </tr>
+                        ${answer_text.toString()}
+                    </table>
+                    `
+                })
+                .catch(error => console.error('API 호출 중 에러 발생:', error));
+        }
+        // 기상청_전국 해수욕장 날씨 조회서비스
+        function gisang_beach_weather() {
+            const serviceKey = "4D8Kfk%2FM0g%2BcaZmM2Eet3T5gE4ZeBfy9kh84%2F396xIPMYnBS4GWiSRWT89iLlZCpayip7hWvCyd7YjlPCUADbA%3D%3D";
+            const apiUrl = `https://apis.data.go.kr/1360000/BeachInfoservice/getWhBuoyBeach?serviceKey=${serviceKey}&numOfRows=1&pageNo=10&dataType=JSON&beach_num=1&searchTime=202205011600`;
+
+            // API 호출
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+		
+
+		            document.getElementById("output_area").innerHTML = `
+		            <div>
+                        <div>해변코드 : ${data.response.body.items.item[0].beachNum}</div>
+                        <div>시간 : ${data.response.body.items.item[0].tm}</div>
+                        <div>파고 : ${data.response.body.items.item[0].wh}</div>
+                         
+                    </div>
+                    `
+                })
+                .catch(error => console.error('API 호출 중 에러 발생:', error));
+        }
+        // 기상청_지상(종관, ASOS) 일자료 조회서비스
+        function gisang_Ground_ASOS() {
+            const serviceKey = "4D8Kfk%2FM0g%2BcaZmM2Eet3T5gE4ZeBfy9kh84%2F396xIPMYnBS4GWiSRWT89iLlZCpayip7hWvCyd7YjlPCUADbA%3D%3D";
+            const apiUrl = `https://apis.data.go.kr/1360000/AsosDalyInfoService/getWthrDataList?serviceKey=${serviceKey}&pageNo=1&numOfRows=10&dataType=json&dataCd=ASOS&dateCd=DAY&startDt=20100101&endDt=20100601&stnIds=108`;
+
+            // API 호출
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.response.body.items.item);
+		
+
+                    answer_text = ""
+
+		            data.response.body.items.item.map((item,idx) => {
+			            console.log(item)
+			
+			            let text = "apple"
+			            answer_text += `
+		            <tr>
+				            <td>${item.stnNm}</td>
+                            <td>${item.iscs}</td>
+                            <td>${item.tm}</td>
+                            <td>${item.maxPs}</td>
+                            <td>${item.avgTa}</td>
+                        
+                    
+			
+			        </tr>
+		            `
+		            })
+		            document.getElementById("output_area").innerHTML = `
+		            <table>
+                        <tr>
+                            <td>지역명</td>
+                            <td>눈강도</td>
+                            <td>시간 tm</td>
+                            <td>최대ps</td>
+                            <td>평균 Ta</td>
+                        </tr>
+                        ${answer_text.toString()}
+                    </table>
+                    `
+            
+                })
+                .catch(error => console.error('API 호출 중 에러 발생:', error));
+        }
+    </script>
+</body>
+</html>
+
+
